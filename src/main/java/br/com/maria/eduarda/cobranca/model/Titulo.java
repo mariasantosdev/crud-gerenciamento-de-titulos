@@ -15,6 +15,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -30,7 +31,7 @@ public class Titulo {
 	
 	private String descricao;
 	
-	
+	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
