@@ -31,15 +31,16 @@ public class TituloController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Titulo titulo) {
-		
 		titulos.save(titulo);
-		
 		ModelAndView mv = new ModelAndView("CadastroTitulo");
 		mv.addObject("mensagem", "Título salvo com sucesso!");
-		
 		System.out.println(titulo);
-		
 		return mv;
+	}
+	
+	@RequestMapping
+	public String pesquisar(){
+		return "PesquisaTitulos";
 	}
 	
 	@ModelAttribute("todosStatusTitulo")

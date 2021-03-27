@@ -1,8 +1,6 @@
 package br.com.maria.eduarda.cobranca.model;
 
 public enum StatusTitulo {
-	
-
 		PENDENTE("Pendente"),
 		RECEBIDO("Recebido");
 		
@@ -15,6 +13,5 @@ public enum StatusTitulo {
 		public String getDescricao() {
 			return descricao;
 		}
-		
-	}
+}
 

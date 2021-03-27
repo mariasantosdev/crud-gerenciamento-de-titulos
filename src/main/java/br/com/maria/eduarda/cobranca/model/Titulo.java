@@ -1,8 +1,6 @@
 package br.com.maria.eduarda.cobranca.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -10,47 +8,38 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 
 @Entity
 public class Titulo {
 
-
-
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-	
 	private String descricao;
-	
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valor;
-	
 	@Enumerated(EnumType.STRING)
 	private StatusTitulo status;
-	
-	
-	public Long getCodigo() {
+
+	public Long getCodigo()
+	{
 		return codigo;
 	}
 
-	public void setCodigo(Long codigo) {
+	public void setCodigo(Long codigo)
+	{
 		this.codigo = codigo;
 	}
 
-	public String getDescricao() {
+	public String getDescricao()
+	{
 		return descricao;
 	}
 
-	public void setDescricao(String descricao) {
+	public void setDescricao(String descricao)
+	{
 		this.descricao = descricao;
 	}
 
@@ -71,7 +60,6 @@ public class Titulo {
 		this.status = status;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -96,7 +84,4 @@ public class Titulo {
 			return false;
 		return true;
 	}
- 
-
-	
 }
