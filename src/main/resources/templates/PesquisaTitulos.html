@@ -22,7 +22,11 @@
 
    <div class="panel panel-default">
    	<div class="panel-heading">
-      		<h1 class="panel-title">Pesquisa de títulos</h1>
+   		<div class="panel-heading">
+			<div class="clearfix">
+	   			<h1 class="panel-title aw-titulo-panel">Pesquisa de títulos</h1>
+	   			<a class="btn btn-link aw-link-panel" href="/titulos/novo">Novo título</a>
+	   		</div>
       	</div>
       	
       	<div class="panel-body">
@@ -31,15 +35,24 @@
       				<tr>
       					<th class="text-center col-md-1">#</th>
       					<th>Decrição</th>
-      					<th class="text-center col-md-2">Data de vencimento</th>
       					<th class="text-right col-md-2">Valor</th>
       					<th class="text-center col-md-2">Status</th>
-      					<th class="col-md-1"></th>
+      			
       				</tr>
       			</thead>
       			<tbody>
+	   				<tr th:each="titulo : ${titulos}">
+	   					<td class="text-center" th:text="${titulo.codigo}">1</td>
+	   					<td th:text="${titulo.descricao}"></td>
+	   					<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
+	   					<td class="text-center">
+	   						<span class="label" th:text="${titulo.status.descricao}"
+	   							th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}"></span>
+	   				</td>
+	   				
+      			
       				<tr>
-      					<td colspan="6">Nenhum título foi encontrado</td>
+      					<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
       				</tr>
       			</tbody>
       		</table>
