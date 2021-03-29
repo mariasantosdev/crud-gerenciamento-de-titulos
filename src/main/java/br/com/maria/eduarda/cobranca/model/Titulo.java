@@ -8,6 +8,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.NumberFormat;
 
@@ -17,8 +20,10 @@ public class Titulo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
+	@NotNull
 	private String descricao;
 	@NumberFormat(pattern = "#,##0.00")
+	@NotNull
 	private BigDecimal valor;
 	@Enumerated(EnumType.STRING)
 	private StatusTitulo status;
