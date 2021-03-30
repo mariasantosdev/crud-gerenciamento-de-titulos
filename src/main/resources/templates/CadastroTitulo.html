@@ -20,7 +20,7 @@
 		</div>
 	</nav>
 
-	<form class="form-horizontal" method="POST" action="/titulos" th:object="${titulo}">
+<form class="form-horizontal" method="POST" action="/titulos" th:object="${titulo}">
 
 		<div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
 			<span th:text="${mensagem}">Título salvo com sucesso!!!</span>
@@ -36,10 +36,11 @@
 			</div>
 
 			<div class="panel-body">
+			<input type="hidden" th:field="*{codigo}"/>
 				<div class="form-group">
 					<label for="descricao" class="col-sm-2 control-label">Descrição</label>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="descricao" th:field="*{descricao}" required="true" />
+						<input type="text" class="form-control" id="descricao" th:field="*{descricao}" required="true"/>
 					</div>
 				</div>
 

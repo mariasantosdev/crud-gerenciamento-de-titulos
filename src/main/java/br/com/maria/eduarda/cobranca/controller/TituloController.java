@@ -20,18 +20,21 @@ import br.com.maria.eduarda.cobranca.repository.Titulos;
 @RequestMapping("/titulos")
 public class TituloController {
 
+	private static final String CADASTRO_VIEW = "CadastroTitulo";
+	
 	@Autowired
 	private Titulos titulos;
 
-	@RequestMapping("/novo")
+	@RequestMapping("/novo")	
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("CadastroTitulo");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject(new Titulo());
 		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(@Validated Titulo titulo) {
-		ModelAndView mv = new ModelAndView("CadastroTitulo");	
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);	
 		titulos.save(titulo);
 		mv.addObject("mensagem", "Título salvo com sucesso!");
 		System.out.println(titulo);
@@ -48,10 +51,10 @@ public class TituloController {
 	
 	@RequestMapping("{codigo}")
 	public ModelAndView edicao(@PathVariable("codigo") Titulo titulo) {
-		ModelAndView mv = new ModelAndView("CadastroTitulo"); 
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW); 
 		mv.addObject(titulo);
 		return mv;
-	}
+	}	
 
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo> todosStatusTitulo() {
