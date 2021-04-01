@@ -19,7 +19,6 @@
 			</div>
 		</div>
 	</nav>
-
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<div class="panel-heading">
@@ -52,30 +51,24 @@
 
 							<td class="text-center">
 								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
-								<button type="submit" class="btn btn-warning">Editar</button>
-			
-						<td class="text-center">
-								<form th:action="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
-								th:method="delete">
-											
-										<button type = "submit" class="btn btn-danger">Excluir</button>
-	
-							
+									<button type="submit" class="btn btn-warning">Editar</button>
+
+							<td class="text-center">
+								<form th:action="@{/titulos/{codigo}(codigo=${titulo.codigo})}" th:method="delete">
+									<button type="submit" class="btn btn-danger">Excluir</button>
 								</form>
 							</td>
-
 						<tr>
 							<td colspan="6" th:if="${#lists.isEmpty(titulos)}">Nenhum título foi encontrado</td>
       				</tr>
       			</tbody>
       		</table>
       	</div>
-
 	</div>
-   
-   <script src="/js/jquery-2.1.4.min.js"></script>
+   <script src="/js/jquery-2.1.4.js"></script>
    <script src="/js/bootstrap.min.js"></script>
-    
-   
+    <script src="/js/jquery.maskMoney.min.js"></script>
+	<script src="/js/cobranca.js"></script>
+	 <script src="/js/jquery.maskMoney.min.js"></script>
 </body>
 </html>
