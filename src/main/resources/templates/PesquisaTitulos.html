@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="LayoutPadrao">
 
 <head>
 	<meta charset="UTF-8" />
@@ -51,13 +52,16 @@
 
 							<td class="text-center">
 								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</a>
-								<a class="btn btn-link btn-xs" data-toggle="modal"
-									data-target="#confirmacaoExclusaoModal"
-									th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}">
-									<span class="glyphicon glyphicon-remove"></span>
-								</a>
+								<button type="submit" class="btn btn-warning">Editar</button>
+			
+						<td class="text-center">
+								<form th:action="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
+								th:method="delete">
+											
+										<button type = "submit" class="btn btn-danger">Excluir</button>
+	
+							
+								</form>
 							</td>
 
 						<tr>
@@ -66,8 +70,12 @@
       			</tbody>
       		</table>
       	</div>
-   </div>
+
+	</div>
+   
    <script src="/js/jquery-2.1.4.min.js"></script>
    <script src="/js/bootstrap.min.js"></script>
+    
+   
 </body>
 </html>

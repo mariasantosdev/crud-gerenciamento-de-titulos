@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.maria.eduarda.cobranca.model.StatusTitulo;
 import br.com.maria.eduarda.cobranca.model.Titulo;
@@ -55,6 +56,12 @@ public class TituloController {
 		mv.addObject(titulo);
 		return mv;
 	}	
+	
+	@RequestMapping(value = "/{codigo}", method = RequestMethod.DELETE)
+		public String excluir(@PathVariable Long codigo) {
+		titulos.deleteById(codigo);
+		return "redirect:/titulos";
+	}
 
 	@ModelAttribute("todosStatusTitulo")
 	public List<StatusTitulo> todosStatusTitulo() {
