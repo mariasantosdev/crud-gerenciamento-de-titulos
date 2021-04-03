@@ -29,6 +29,21 @@
 			</div>
 
 			<div class="panel-body">
+			   		<form method="GET" class="form-horizontal">
+	   			<div class="form-group">
+	   				<div class="col-sm-4">
+	   					<div class="input-group">
+	   						<input class="form-control" placeholder="Qual título você está procurando?"
+	   							autofocus="autofocus"></input>
+	   						<span class="input-group-btn">
+	   							<button type="submit" class="btn btn-default">
+	   								<i class="glyphicon glyphicon-search"></i>
+	   							</button>
+	   						</span>
+	   					</div>
+	   				</div>
+	   			</div>
+	   		</form>
 				<table class="table table-bordered table-striped">
 					<thead>
 						<tr>
@@ -44,14 +59,14 @@
 							<td class="text-center" th:text="${titulo.codigo}">1</td>
 							<td th:text="${titulo.descricao}"></td>
 							<td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
-							<td class="text-center">
+							<td class="text-center" th:attr="data-role=${titulo.codigo}">
 								<span class="label" th:text="${titulo.status.descricao}"
 									th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}"></span>
 							</td>
 
 							<td class="text-center">
 								<a class="btn btn-link btn-xs" th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}">
-									<button type="submit" class="btn btn-warning">Editar</button>
+									<button type="submit" class="btn btn-primary">Editar</button>
 
 							<td class="text-center">
 								<form th:action="@{/titulos/{codigo}(codigo=${titulo.codigo})}" th:method="delete">
@@ -69,6 +84,5 @@
    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery.maskMoney.min.js"></script>
 	<script src="/js/cobranca.js"></script>
-	 <script src="/js/jquery.maskMoney.min.js"></script>
 </body>
 </html>
